@@ -1,0 +1,37 @@
+---
+- hosts: all
+  sudo: true
+  tasks:
+
+  - name: install misc packages
+    apt: name={{ item }} state=latest
+    with_items:
+      - ssh
+      - xserver-xorg
+      - libglib2.0-0
+      - libgtk2.0-0
+      - libatk1.0-0
+      - libpango1.0-0
+      - libcairo2
+      - udev
+      - dbus
+      - libgl1-mesa-glx
+      - libgl1-mesa-dri
+      - libglu1-mesa
+      - x11-xserver-utils
+      - alsa-base
+      - libnss3-1d
+      - libnspr4-0d
+
+
+  - copy: src=/vagrant/ansible/broadsign-player/bsplayer.deb dest=/tmp/bsplayer.deb
+
+  - copy: src=/vagrant/ansible/broadsign-player/dscp.deb dest=/tmp/dscp.deb
+    notify: install bsplayer
+
+  - name: install bsplayer
+    apt: deb="/tmp/bsplayer.deb" state=present
+    apt: deb="/tmp/dscp.deb" state=present
+
+  - name: dedicate player
+    script: /opt/broadsign/suite/bsp/bin/dedicated_bsp.sh
