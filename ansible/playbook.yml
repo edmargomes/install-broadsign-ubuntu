@@ -1,8 +1,5 @@
 ---
 - hosts: all
-  roles:
-    - role: manala.ngrok
-
   sudo: true
 
   tasks:
