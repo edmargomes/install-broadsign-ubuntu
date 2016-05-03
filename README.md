@@ -1,16 +1,12 @@
 # install-broadsign-ubuntu
 Automation install broadsign player in the ubuntu 32 bits
 
-Requisites:
-* Vagrant (http://www.vagrantup.com/)
-* VirtualBox (https://www.virtualbox.org/)
-
-
 Tutorial:
 
-Place the broadsign install files* in ansible/broadsign-player directory.
+Place the broadsign install file* in ansible/broadsign-player directory.
 
-*bsplayer.deb and dscp.deb
+*bsplayer.deb
 
 Execute:
-./installBroadsign.sh
+cd ansible
+sh provision.sh
