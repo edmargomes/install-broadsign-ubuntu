@@ -9,3 +9,5 @@ Tutorial:
 ```
 sh provision.sh
 ```
+
+### Vagrant not fully functional yet.
