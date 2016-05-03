@@ -1,9 +1,9 @@
 ---
 - hosts: all
-  roles:
-    - role: manala.ngrok
-
   sudo: true
+
+  roles:
+    - { role: ngrok }
 
   tasks:
   - name: install misc packages
