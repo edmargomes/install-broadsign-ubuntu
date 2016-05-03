@@ -8,5 +8,7 @@ Place the broadsign install file* in ansible/broadsign-player directory.
 *bsplayer.deb
 
 Execute:
+
 cd ansible
+
 sh provision.sh
