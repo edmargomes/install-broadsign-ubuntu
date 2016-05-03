@@ -1,8 +1,11 @@
 ---
 - hosts: all
-  sudo: true
-  tasks:
+  roles:
+    - role: manala.ngrok
 
+  sudo: true
+
+  tasks:
   - name: install misc packages
     apt: name={{ item }} state=latest
     with_items:
