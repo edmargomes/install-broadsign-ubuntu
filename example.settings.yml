@@ -1,0 +1,6 @@
+---
+# Configuration file
+# Change settings here to control how your box is set up.
+
+# Ngrok settings
+authtoken: "Your Ngrok auth token"

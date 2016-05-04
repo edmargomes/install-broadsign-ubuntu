@@ -4,6 +4,7 @@ sudo apt-get install software-properties-common
 sudo apt-add-repository ppa:ansible/ansible -y
 sudo apt-get update
 sudo apt-get install ansible -y
+sudo apt-get install unzip
 
 sudo mkdir -p /etc/ansible
 printf '[vagrant]\nlocalhost\n' | sudo tee /etc/ansible/hosts > /dev/null

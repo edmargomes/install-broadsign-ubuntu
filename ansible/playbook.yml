@@ -2,7 +2,11 @@
 - hosts: all
   sudo: true
 
+  vars_files:
+    - ../settings.yml
+
   tasks:
+
   - name: install misc packages
     apt: name={{ item }} state=latest
     with_items:
@@ -18,3 +22,13 @@
 
   - name: dedicate player
     script: /opt/broadsign/suite/bsp/bin/dedicated_bsp.sh
+
+  - name: download ngrok
+    get_url: url=https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip dest=/tmp/ngrok.zip mode=0600
+
+  - name: unzip ngrok
+    command: unzip -o "/tmp/ngrok.zip"
+
+  - name: ensure ngrok will run on start-up
+    command: /tmp/ngrok authtoken {{ authtoken}}
+    command: printf "/tmp/ngrok tcp 22\nexit 0\n" > "/etc/rc.local"
