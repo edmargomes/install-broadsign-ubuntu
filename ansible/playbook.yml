@@ -14,21 +14,23 @@
       - libglib2.0-0
       - libgtk2.0-0
 
-  #- copy: src=broadsign-player/bsplayer.deb dest=/tmp/bsplayer.deb
-  #  notify: install bsplayer
+  - copy: src=broadsign-player/bsplayer.deb dest=/tmp/bsplayer.deb
+    notify: install bsplayer
 
-  #- name: install bsplayer
-  #  command: dpkg -i "/tmp/bsplayer.deb"
+  - name: install bsplayer
+    command: dpkg -i "/tmp/bsplayer.deb"
 
-  #- name: dedicate player
-  #  script: /opt/broadsign/suite/bsp/bin/dedicated_bsp.sh
+  - name: dedicate player
+    script: /opt/broadsign/suite/bsp/bin/dedicated_bsp.sh
 
   - name: download ngrok
-    get_url: url=https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip dest=/tmp/ngrok.zip mode=0600
+    get_url: url=https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip dest=/tmp/ngrok.zip mode=0600
 
   - name: unzip ngrok
     command: unzip -o "/tmp/ngrok.zip" -d "/tmp/"
 
-  - name: ensure ngrok will run on start-up
+  - name: authorize ngrok
     command: /tmp/ngrok authtoken {{ authtoken}}
-    command: printf "/tmp/ngrok tcp 22\nexit 0\n" > "/etc/rc.local"
+
+  - name: ensure ngrok will run on start-up
+    command: printf "/tmp/ngrok tcp 22\nexit 0\n" > /etc/rc.local
