@@ -10,4 +10,14 @@ Tutorial:
 sh provision.sh
 ```
 
+- Create an account on https://ngrok.com/
+
+- Copy `example.settings.yml` to `settings.yml`
+
+    `cp example.settings.yml settings.yml`
+
+- Open `settings.yml` with your favorite editor.
+
+  * Provide your details for Ngrok
+
 ### Vagrant not fully functional yet.
