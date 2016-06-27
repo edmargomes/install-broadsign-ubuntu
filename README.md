@@ -5,11 +5,6 @@ Tutorial:
 
 - Place the broadsign install file(named bsplayer.deb) in ansible/broadsign-player directory.
 
-- Inside ansible directory, execute:
-```
-sh provision.sh
-```
-
 - Create an account on https://ngrok.com/
 
 - Copy `example.settings.yml` to `settings.yml`
@@ -19,5 +14,10 @@ sh provision.sh
 - Open `settings.yml` with your favorite editor.
 
   * Provide your details for Ngrok
+
+- Inside ansible directory, execute:
+```
+sh provision.sh
+```
 
 ### Vagrant not fully functional yet.

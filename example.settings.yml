@@ -4,3 +4,4 @@
 
 # Ngrok settings
 authtoken: "Your Ngrok auth token"
+dedicated: false

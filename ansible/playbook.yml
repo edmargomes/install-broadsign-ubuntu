@@ -22,6 +22,7 @@
 
   - name: dedicate player
     script: /opt/broadsign/suite/bsp/bin/dedicated_bsp.sh
+    when: dedicated
 
   - name: download ngrok
     get_url: url=https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-386.zip dest=/tmp/ngrok.zip mode=0600
